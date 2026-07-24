@@ -17,12 +17,12 @@
 
 ### Tech Stack
 
-| Komponen | Teknologi |
-|---|---|
-| Backend | Laravel 13.8, PHP 8.3+ |
+| Komponen | Teknologi                                   |
+| -------- | ------------------------------------------- |
+| Backend  | Laravel 13.8, PHP 8.3+                      |
 | Frontend | Blade Templates, Tailwind CSS 4.0, Vite 8.0 |
-| Database | MySQL 8.x |
-| Testing | PHPUnit 12.5 |
+| Database | MySQL 8.x                                   |
+| Testing  | PHPUnit 12.5                                |
 
 ---
 
@@ -30,13 +30,13 @@
 
 Sebelum memulai, pastikan komputer Anda telah menginstal:
 
-| Software | Versi Minimal | Catatan |
-|---|---|---|
-| PHP | 8.3 | Berserta ekstensi: `pdo_mysql`, `mbstring`, `openssl`, `tokenizer`, `xml`, `ctype`, `json`, `bcmath` |
-| Composer | 2.x | [composer.org](https://getcomposer.org/) |
-| Node.js | 18+ | Untuk build aset frontend |
-| MySQL | 8.0 | Atau MariaDB 10.3+ |
-| Laragon | (opsional) | Sangat disarankan untuk pengembangan di Windows |
+| Software | Versi Minimal | Catatan                                                                                              |
+| -------- | ------------- | ---------------------------------------------------------------------------------------------------- |
+| PHP      | 8.3           | Berserta ekstensi: `pdo_mysql`, `mbstring`, `openssl`, `tokenizer`, `xml`, `ctype`, `json`, `bcmath` |
+| Composer | 2.x           | [composer.org](https://getcomposer.org/)                                                             |
+| Node.js  | 18+           | Untuk build aset frontend                                                                            |
+| MySQL    | 8.0           | Atau MariaDB 10.3+                                                                                   |
+| Laragon  | (opsional)    | Sangat disarankan untuk pengembangan di Windows                                                      |
 
 ---
 
@@ -45,7 +45,7 @@ Sebelum memulai, pastikan komputer Anda telah menginstal:
 ### 1. Clone repository
 
 ```bash
-git clone <url-repositori>
+git clone https://github.com/Muebing/Sistem-Pengajuan-Kredit-Internal
 cd Credit-Submission-Prototype
 ```
 
@@ -56,6 +56,7 @@ composer setup
 ```
 
 Perintah ini akan menjalankan:
+
 - `composer install` — instal dependensi PHP
 - Salin `.env.example` ke `.env` (jika belum ada)
 - `php artisan key:generate` — buat application key
@@ -102,12 +103,12 @@ composer dev
 
 Perintah ini menjalankan 4 layanan secara bersamaan:
 
-| Layanan | Fungsi | Port |
-|---|---|---|
-| `php artisan serve` | Web server | `localhost:8000` |
-| `php artisan queue:listen` | Queue worker | — |
-| `php artisan pail` | Log real-time | — |
-| `npm run dev` | Vite dev server (hot reload) | `localhost:5173` |
+| Layanan                    | Fungsi                       | Port             |
+| -------------------------- | ---------------------------- | ---------------- |
+| `php artisan serve`        | Web server                   | `localhost:8000` |
+| `php artisan queue:listen` | Queue worker                 | —                |
+| `php artisan pail`         | Log real-time                | —                |
+| `npm run dev`              | Vite dev server (hot reload) | `localhost:5173` |
 
 Buka browser dan akses: **http://localhost:8000**
 
@@ -126,6 +127,7 @@ composer test
 ```
 
 Perintah ini akan:
+
 1. Membersihkan cache konfigurasi (`config:clear`)
 2. Menjalankan seluruh suite pengujian PHPUnit
 
@@ -136,6 +138,7 @@ php artisan test --filter=NamaMetodeTest
 ```
 
 > **Catatan:** Pengujian berjalan menggunakan database MySQL (`capella_multidana_test`). Pastikan database tersebut sudah dibuat:
+>
 > ```sql
 > CREATE DATABASE capella_multidana_test;
 > ```
@@ -180,12 +183,12 @@ Credit-Submission-Prototype/
 
 Aplikasi ini menerapkan aturan bisnis berikut:
 
-| Aturan | Nilai | Error Message |
-|---|---|---|
-| Pendapatan bulanan minimum | Rp 1.000.000 | Nasabah belum dapat mengajukan pinjaman |
-| Nominal pinjaman maksimum | Rp 200.000.000 | Nominal pinjaman maksimal Rp200.000.000 |
-| Tenor maksimum | 24 bulan | Tenor maksimal 24 bulan |
-| Maksimal pengajuan per nasabah | 3 kali | Nasabah telah memiliki maksimal 3 pengajuan |
+| Aturan                         | Nilai          | Error Message                               |
+| ------------------------------ | -------------- | ------------------------------------------- |
+| Pendapatan bulanan minimum     | Rp 1.000.000   | Nasabah belum dapat mengajukan pinjaman     |
+| Nominal pinjaman maksimum      | Rp 200.000.000 | Nominal pinjaman maksimal Rp200.000.000     |
+| Tenor maksimum                 | 24 bulan       | Tenor maksimal 24 bulan                     |
+| Maksimal pengajuan per nasabah | 3 kali         | Nasabah telah memiliki maksimal 3 pengajuan |
 
 ### Status pengajuan
 
@@ -204,14 +207,14 @@ pending → ditolak
 
 ## Perintah Tersedia
 
-| Perintah | Fungsi |
-|---|---|
-| `composer setup` | Instalasi lengkap dari nol |
-| `composer dev` | Jalankan semua layanan development |
-| `composer test` | Jalankan pengujian |
-| `npx vite build` | Build aset frontend |
-| `npx laravel-pint` | Format kode PHP sesuai standar Laravel |
-| `php artisan migrate:fresh --seed` | Reset database + isi data dummy |
+| Perintah                           | Fungsi                                 |
+| ---------------------------------- | -------------------------------------- |
+| `composer setup`                   | Instalasi lengkap dari nol             |
+| `composer dev`                     | Jalankan semua layanan development     |
+| `composer test`                    | Jalankan pengujian                     |
+| `npx vite build`                   | Build aset frontend                    |
+| `npx laravel-pint`                 | Format kode PHP sesuai standar Laravel |
+| `php artisan migrate:fresh --seed` | Reset database + isi data dummy        |
 
 ---
 
